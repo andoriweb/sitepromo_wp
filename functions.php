@@ -1,4 +1,5 @@
 <?php
+
 // подключить стили и скрипты
 add_action( 'wp_enqueue_scripts', 'sitepromo_styles' );
 add_action( 'wp_enqueue_scripts', 'sitepromo_scripts' );
@@ -28,6 +29,22 @@ function sitepromo_scripts() {
 	wp_enqueue_script( 'contact', get_template_directory_uri() . '/plugins/jquery/contact.js', array('jquery'), '1.0.0', true );
 
 	wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1.0.0', true );
+}
+
+
+// Logo
+if (! function_exists('sitepromo_setup')){
+  function sitepromo_setup () {
+    add_theme_support( 'custom-logo', [
+      'height'      => 50,
+      'width'       => 130,
+      'flex-width'  => false,
+      'flex-height' => false,
+      'header-text' => '',
+      'unlink-homepage-logo' => false, // WP 5.5
+    ] );
+  }
+  add_action('after_setup_theme', 'sitepromo_setup');
 }
 
 
