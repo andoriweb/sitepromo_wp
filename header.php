@@ -10,7 +10,7 @@
       content="marketing,digital marketing,creative, agency, startup,promodise,onepage, clean, modern,seo,business, company"
     />
 
-    <title>Promodise - seo and digital агентство</title>
+    <!-- <title>Promodise - seo and digital агентство</title> -->
 
     <?php wp_head(); ?>
 
@@ -42,7 +42,26 @@
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="mainNav">
-          <ul class="navbar-nav">
+          <?php 
+            wp_nav_menu( [
+              'theme_location'  => 'header_menu',
+              'container'       => false,
+              'menu_class'      => 'navbar-nav',
+              'menu_id'         => false,
+              'echo'            => true,
+              'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+              'depth'           => 5,
+              'walker'          => new bootstrap_4_walker_nav_menu()
+            ] ); 
+          ?>
+
+
+
+
+
+
+          <!-- <ul class="navbar-nav">
+            
             <li class="nav-item">
               <a class="nav-link" href="/"> Главная </a>
             </li>
@@ -74,7 +93,7 @@
             <li class="nav-item">
               <a class="nav-link smoth-scroll" href="contact.html">Контакты</a>
             </li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </nav>
