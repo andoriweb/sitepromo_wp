@@ -32,9 +32,10 @@ function sitepromo_scripts() {
 }
 
 
-// Logo
+
 if (! function_exists('sitepromo_setup')){
   function sitepromo_setup () {
+    // Logo
     add_theme_support( 'custom-logo', [
       'height'      => 50,
       'width'       => 130,
@@ -45,6 +46,8 @@ if (! function_exists('sitepromo_setup')){
     ] );
     // title
     add_theme_support( 'title-tag' );
+    // img
+    add_theme_support( 'post-thumbnails' );
   }
   add_action('after_setup_theme', 'sitepromo_setup');
 }
