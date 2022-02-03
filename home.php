@@ -39,10 +39,10 @@
                                     <div class="blog-post">
                                         <?php 
                                             if( has_post_thumbnail() ) {
-                                                the_post_thumbnail('thumb', array('class' => "img-fluid"));
+                                                the_post_thumbnail('large', array('class' => "img-fluid w-100"));
                                             }
                                             else {
-                                                echo '<img class="img-fluid" src="'.get_template_directory_uri().'/images/blog/blog-4.jpg" />';
+                                                echo '<img class="img-fluid w-100" src="'.get_template_directory_uri().'/images/blog/blog-4.jpg" />';
                                             }
                                         ?>
                                         <div class="mt-4 mb-3 d-flex">
@@ -93,6 +93,18 @@
                             <?php } endwhile; else: ?>
                     Записей нет.
                     <?php endif; ?>
+                    <div class="col-12">
+                        <?php the_posts_pagination(array(
+                        'show_all'     => false, // показаны все страницы участвующие в пагинации
+                        'end_size'     => 5,     // количество страниц на концах
+                        'mid_size'     => 5,     // количество страниц вокруг текущей
+                        'prev_next'    => true,  // выводить ли боковые ссылки "предыдущая/следующая страница".
+                        'prev_text'    => __('<span class="p-2">« Назад</span>'),
+                        'next_text'    => __('<span class="p-2">Вперёд »</span>'),
+                        'before_page_number' => '<span class="p-2 border">',
+                        'after_page_number'  => '</span>'
+                        )); ?>
+                    </div>
 
                 </div>
             </div>
