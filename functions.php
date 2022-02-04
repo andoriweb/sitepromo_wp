@@ -128,6 +128,19 @@ function delete_intermediate_image_sizes( $sizes ){
 	] );
 }
 
+// Widgets and Sidebar
+
+add_action('widgets_init', 'sitepromo_widgets');
+function sitepromo_widgets() {
+  register_sidebar(array(
+	'name'          => esc_html__('Сайтбар блога', 'sitepromo'),
+	'id'            => "sidebar-blog",
+	'before_widget' => '<section id="%1$s" class="sidebar-widget %2$s">',
+	'after_widget'  => '</section>',
+	'before_title'  => '<h5 class="widget-title mb-3">',
+	'after_title'   => '</h5>' 
+  ));
+}
 
 
 
